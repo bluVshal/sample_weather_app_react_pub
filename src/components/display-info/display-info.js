@@ -1,3 +1,10 @@
+/**
+ * Pravishal ISHRI 
+ * 30/11/2020
+ *  Deals with the API call 
+ *  and sends the result to the components that will deal with the display
+ *  */
+
 import React, { useState, useEffect } from 'react';
 import DisplayComponents from '../display-components/display-components';
 

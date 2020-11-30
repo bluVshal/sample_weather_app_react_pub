@@ -1,3 +1,10 @@
+/**
+ * Pravishal ISHRI 
+ * 30/11/2020
+ * Component that deals with the City name input by user
+ * To be sent to DisplayInfo component to make the API Call
+ */
+
 import React, { useState } from 'react';
 import { Col, Button } from 'react-bootstrap';
 
