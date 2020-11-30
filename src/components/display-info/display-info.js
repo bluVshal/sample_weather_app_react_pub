@@ -4,7 +4,7 @@ import DisplayComponents from '../display-components/display-components';
 const DisplayInfo = ({ cityName}) => {
     const [weatherResultsObj, setWeatherResultsObj] = useState({});
 
-   /* useEffect(
+    useEffect(
         () => {
                 fetch("https://community-open-weather-map.p.rapidapi.com/weather?q="+cityName, {
                 "method": "GET",
@@ -19,7 +19,7 @@ const DisplayInfo = ({ cityName}) => {
                     console.error(err);
                 });
             }
-    );*/
+    );
     return(
         <div>
             <DisplayComponents weatherResultsObj = {weatherResultsObj}/>
