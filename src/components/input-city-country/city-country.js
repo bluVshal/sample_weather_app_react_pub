@@ -12,7 +12,7 @@ import DisplayInfo from '../display-info/display-info';
 import './city-country.css';
 
 const CityCountryInput = () => {
-    const [cityName, setCityName] = useState('');
+    const [cityName, setCityName] = useState('London');
     const [inputText, setInputText] = useState('');
     const [tempType, setTempType] = useState('C');
 
