@@ -6,7 +6,7 @@
  */
 
 import React, { useState } from 'react';
-import { Col, Button } from 'react-bootstrap';
+import { ToggleButtonGroup, ToggleButton, Col, Button } from 'react-bootstrap';
 
 import DisplayInfo from '../display-info/display-info';
 import './city-country.css';
@@ -14,11 +14,16 @@ import './city-country.css';
 const CityCountryInput = () => {
     const [cityName, setCityName] = useState('');
     const [inputText, setInputText] = useState('');
+    const [tempType, setTempType] = useState('C');
+
     const updateCityName = (event) => {
         setInputText(event.target.value);
     }
     const handleOkButton = () => {
         setCityName(inputText);
+    }
+    const handleResetButton = () => {
+        setInputText('');
     }
 
     return(
@@ -33,9 +38,15 @@ const CityCountryInput = () => {
                     placeholder="Enter city name"
                 />
                 <Button variant="success" onClick={handleOkButton}>OK</Button>
-                <Button variant="secondary" onClick={() => setCityName('')}>RESET</Button>
+                <Button variant="secondary" onClick={handleResetButton}>RESET</Button>
             </Col>
-            <DisplayInfo cityName={cityName}/>
+            <Col>
+            <ToggleButtonGroup type="radio" name="celsFahren">
+                <ToggleButton variant='success' onChange={()=> setTempType('C')} name='celsius'>Celsius</ToggleButton>
+                <ToggleButton variant='light' onChange={()=> setTempType('F')} checked name='fahrenheit'>Fahrenheit</ToggleButton>
+            </ToggleButtonGroup>
+            </Col>
+            <DisplayInfo tempType={tempType} cityName={cityName}/>
         </div>
     );
 };

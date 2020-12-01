@@ -8,7 +8,7 @@
 import React, { useState, useEffect } from 'react';
 import DisplayComponents from '../display-components/display-components';
 
-const DisplayInfo = ({ cityName}) => {
+const DisplayInfo = ({ tempType, cityName }) => {
     const [weatherResultsObj, setWeatherResultsObj] = useState({});
 
     useEffect(
@@ -21,15 +21,15 @@ const DisplayInfo = ({ cityName}) => {
                     }
                 })
                 .then(response => response.json())
-                .then(jsondata => setWeatherResults(jsonData))
+                .then(jsonData => setWeatherResultsObj(jsonData))
                 .catch(err => {
                     console.error(err);
                 });
-            }
+            }, [cityName]
     );
     return(
         <div>
-            <DisplayComponents weatherResultsObj = {weatherResultsObj}/>
+            <DisplayComponents tempType={tempType} weatherResultsObj = {weatherResultsObj}/>
         </div>
     );
 };
